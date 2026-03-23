@@ -48,8 +48,8 @@ def perform_PnP(
     for i in range(pts2d.shape[0]): #Loop through the batch
         # Extra predictions and dataloader ground truths
         kp2d = pts2d[i]
-        kp3d = pts3d if pts3d.ndim == 2 else pts3d[i]
-        K = intrinsics if intrinsics.ndim == 2 else intrinsics[i]
+        kp3d = pts3d[i]
+        K = intrinsics[i]
         
         # Run PnP
         success, rvec, tvec = cv2.solvePnP(
